@@ -294,8 +294,7 @@ def add_router_ctrl_arguments(parser):
     """
     router_ctrl_config_group = parser.add_argument_group('Controller Options')
     router_ctrl_config_group.add_argument('--controller',type=str,
-                                     help='Hostname or IP of Openziti controller',
-                                     'Default ec2-13-60-60-200.eu-north-1.compute.amazonaws.com'
+                                     help='Hostname or IP of Openziti controller'
                                      )
     router_ctrl_config_group.add_argument('--controllerFabricPort',type=int,
                                      help='Controller Fabric Port'
@@ -1924,7 +1923,8 @@ def create_template(args, controller_info):
 
     return filled_out_template
 
-def main(args):
+def main():
+    args = sys.argv[1:]
     """
     Main logic
     """
@@ -1933,6 +1933,7 @@ def main(args):
 
     # get arguments passed
     args = parser.parse_args(args)
+
 
     # root check
     check_root_permissions()
@@ -1945,7 +1946,7 @@ def main(args):
 
     # setup logging only if calling from script
     if __name__ == '__main__':
-        setup_logging(log_file, args.logLevel)
+        setup_logging(args.logLevel, log_file)
 
     # check environment for args
     check_env_vars(args, parser)
@@ -2013,6 +2014,4 @@ def main(args):
         manage_systemd_service('ziti-router.service', 'start')
         manage_systemd_service('ziti-router.service', 'enable')
 
-# main
-if __name__ == '__main__':
-    main(sys.argv[1:])
+
