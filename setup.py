@@ -1,8 +1,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='route_knorket',
-    version='0.6.0',
+    name='Knorket_TrustMesh',
+    version='0.1.0',
     author='ockhamlabs',
     author_email='hello@ockhamlabs.ai',
     description='Knorket router exposes internal private services via zero-trust',
@@ -12,7 +12,7 @@ setup(
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'route-knorket = route_knorket.main:main',
+            'Knorket-TrustMesh = Knorket_TrustMesh.main:main',
         ],
     },
     classifiers=[

@@ -17,11 +17,11 @@ python3 -m twine upload dist/*
 ### To use this package 
 
 ```sh
-pip3 install route-knorket
+pip3 install Knorket-TrustMesh
 ```
 
 ### Example command to register a router
 
 ```sh
-route-knorket --jwt enroll.txt 
+Knorket-TrustMesh --jwt enroll.txt 
 ```
