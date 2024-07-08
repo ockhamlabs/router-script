@@ -298,8 +298,8 @@ def add_router_ctrl_arguments(parser):
                                      )
     router_ctrl_config_group.add_argument('--controllerFabricPort',type=int,
                                      help='Controller Fabric Port'
-                                          'Default 6262',
-                                     default=80)
+                                          'Default 443',
+                                     default=443)
     router_ctrl_config_group.add_argument('--controllerMgmtPort',type=int,
                                      help='Controller Management Port'
                                           'Default 443',
@@ -1063,11 +1063,12 @@ def get_ziti_controller_version(controller_url):
     """
     try:
         logging.info("Version not specified, going to check with controller")
-        endpoint_url = f"{controller_url}/edge/client/v1/version"
+        endpoint_url = "https://ztnclient.kloudsoft.co:443/edge/client/v1/version"
         logging.debug("Attempting to access %s", endpoint_url)
 
         urllib3.disable_warnings()
         try:
+            logging.debug("Attempting to access %s", endpoint_url)
             response = requests.get(endpoint_url, verify=False, timeout=15)
             response.raise_for_status()
         except requests.ConnectTimeout as timeout:
@@ -1525,8 +1526,8 @@ def set_controller_info(args, jwt_info):
         controller_hostname = controller_url.hostname
 
     controller_info = {
-        "scheme": controller_url.scheme,
-        "hostname": controller_hostname,
+        "scheme": "https",
+        "hostname": "ztnctrl.kloudsoft.co",
         "mgmt_port": controller_url.port,
         "fabric_port": args.controllerFabricPort
     }

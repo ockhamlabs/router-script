@@ -1,18 +1,18 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='ziti_router',
-    version='0.5.0',
-    author='sadath',
-    author_email='sadathsadu2002@gmail.com',
-    description='A description of your package',
+    name='route_knorket',
+    version='0.6.0',
+    author='ockhamlabs',
+    author_email='hello@ockhamlabs.ai',
+    description='Knorket router exposes internal private services via zero-trust',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
     url='',
     packages=find_packages(),
     entry_points={
         'console_scripts': [
-            'ziti-router = ziti_router.main:main',
+            'route-knorket = route_knorket.main:main',
         ],
     },
     classifiers=[
