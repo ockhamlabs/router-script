@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='Knorket_TrustMesh',
-    version='0.1.0',
+    version='0.2.0',
     author='ockhamlabs',
     author_email='hello@ockhamlabs.ai',
     description='Knorket router exposes internal private services via zero-trust',
