@@ -25,3 +25,5 @@ pip3 install Knorket-TrustMesh
 ```sh
 Knorket-TrustMesh --jwt enroll.txt 
 ```
+
+https://pypi.org/project/Knorket-TrustMesh/0.1.0/
